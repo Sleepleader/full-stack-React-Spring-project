@@ -1,0 +1,18 @@
+/* Login page specific styles - shared styles are in index.css */
+
+.admin-login-hint {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.admin-login-hint a {
+  color: #007185;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.admin-login-hint a:hover {
+  color: #c7511f;
+  text-decoration: underline;
+}

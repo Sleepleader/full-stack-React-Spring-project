@@ -1,0 +1,65 @@
+# ==================== 用户服务配置 ====================
+# 服务名：mall-user-service
+# 端口：8081
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: mall-user-service
+
+  # ==================== 数据库配置（本地 MySQL 8.0） ====================
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/smart_mall?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456              # 请根据本地 MySQL 修改密码
+
+  cloud:
+    # ==================== Nacos 服务发现配置 ====================
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848    # Nacos 服务地址（本地运行时）
+        # server-addr: nacos:8848      # Docker 部署时使用（取消注释）
+        namespace: public
+        group: DEFAULT_GROUP
+
+  # ==================== Redis 配置（暂未启用） ====================
+  # 当 Redis 安装完毕后，取消以下注释并配置连接信息：
+  # data:
+  #   redis:
+  #     host: 127.0.0.1         # 本地运行时
+  #     # host: redis            # Docker 部署时使用
+  #     port: 6379
+  #     password:                # Redis 密码（如有）
+  #     database: 0
+  #     timeout: 5000ms
+  #     lettuce:
+  #       pool:
+  #         max-active: 8
+  #         max-idle: 8
+  #         min-idle: 0
+
+# ==================== MyBatis-Plus 配置 ====================
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl    # 开发环境打印 SQL
+    map-underscore-to-camel-case: true                       # 下划线转驼峰
+  global-config:
+    db-config:
+      id-type: auto                                          # 主键自增
+      table-prefix: t_                                       # 表名前缀
+
+# ==================== 日志配置 ====================
+logging:
+  level:
+    com.smartmall.user: DEBUG
+    com.smartmall.user.mapper: DEBUG                         # 打印 MyBatis SQL
+
+# ==================== Actuator 健康检查 ====================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

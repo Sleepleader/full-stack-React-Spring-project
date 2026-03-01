@@ -1,0 +1,101 @@
+# ==================== 网关服务配置 ====================
+# 服务名：mall-gateway
+# 端口：9527
+
+server:
+  port: 9527
+
+spring:
+  application:
+    name: mall-gateway
+
+  cloud:
+    # ==================== Nacos 服务发现配置 ====================
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848    # Nacos 服务地址（本地运行时）
+        # server-addr: nacos:8848      # Docker 部署时使用（取消注释）
+        namespace: public              # 命名空间
+        group: DEFAULT_GROUP           # 服务分组
+
+    # ==================== Gateway 路由配置 ====================
+    gateway:
+      routes:
+        # 认证服务路由：/api/auth/** → mall-auth-service
+        - id: mall-auth-service
+          uri: lb://mall-auth-service          # lb:// 表示通过 Nacos 负载均衡
+          predicates:
+            - Path=/api/auth/**                # 匹配路径
+          filters:
+            - StripPrefix=0                    # 不去掉前缀，保持原路径转发
+
+        # 用户服务路由：/api/user/** → mall-user-service
+        - id: mall-user-service
+          uri: lb://mall-user-service
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=0
+
+        # 购物车路由：/api/cart/** → mall-user-service
+        - id: mall-cart-service
+          uri: lb://mall-user-service
+          predicates:
+            - Path=/api/cart/**
+          filters:
+            - StripPrefix=0
+
+        # 商品路由：/api/product/** → mall-user-service
+        - id: mall-product-service
+          uri: lb://mall-user-service
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - StripPrefix=0
+
+        # 订单路由：/api/order/** → mall-user-service
+        - id: mall-order-service
+          uri: lb://mall-user-service
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - StripPrefix=0
+
+        # 管理员路由：/api/admin/** → mall-user-service
+        - id: mall-admin-service
+          uri: lb://mall-user-service
+          predicates:
+            - Path=/api/admin/**
+          filters:
+            - StripPrefix=0
+
+      # ==================== 全局 CORS 跨域配置 ====================
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://localhost:5173"         # Vite 开发服务器地址
+              - "http://localhost:80"           # Nginx 生产地址
+              - "http://localhost"              # 生产地址（无端口）
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"                 # 允许所有请求头
+            allowCredentials: true              # 允许携带 Cookie/Token
+            maxAge: 3600                        # 预检请求缓存时间（秒）
+
+# ==================== 日志配置 ====================
+logging:
+  level:
+    com.smartmall.gateway: DEBUG
+    org.springframework.cloud.gateway: DEBUG
+
+# ==================== Actuator 健康检查 ====================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway

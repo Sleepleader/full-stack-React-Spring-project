@@ -1,0 +1,257 @@
+/* ===== Apple-style Environmental Responsibility Page ===== */
+
+.env-page {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  background: #000;
+  color: #f5f5f7;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Animations ===== */
+.env-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.env-animate.env-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.env-animate:nth-child(2) { transition-delay: 0.15s; }
+.env-animate:nth-child(3) { transition-delay: 0.3s; }
+.env-animate:nth-child(4) { transition-delay: 0.45s; }
+
+/* ===== Nav ===== */
+.env-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.env-nav-back {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  transition: color 0.3s;
+}
+
+.env-nav-back:hover {
+  color: #fff;
+}
+
+/* ===== Hero Section ===== */
+.env-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 128px 24px 80px;
+  background: linear-gradient(180deg, #000 0%, #0a1a0f 50%, #000 100%);
+}
+
+.env-hero-content {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Massive Apple-style title */
+.env-mega-title {
+  display: block;
+  font-size: clamp(4.5rem, 15vw, 10rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #30d158;
+  margin: 0 0 40px;
+  background: linear-gradient(180deg, #30d158 0%, #0a8a2e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.env-headline {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #f5f5f7;
+  margin: 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.env-hero-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, #000);
+  pointer-events: none;
+}
+
+/* ===== Details Section ===== */
+.env-details {
+  padding: 100px 24px 120px;
+  background: #000;
+}
+
+.env-details-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.env-paragraph {
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(245, 245, 247, 0.6);
+  margin: 0;
+}
+
+.env-paragraph + .env-paragraph {
+  margin-top: 36px;
+}
+
+/* ===== Stats Section ===== */
+.env-stats {
+  padding: 100px 24px;
+  background: linear-gradient(180deg, #000 0%, #0a0a0a 100%);
+}
+
+.env-stats-grid {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.env-stat-card {
+  text-align: center;
+  padding: 48px 24px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.3s;
+}
+
+.env-stat-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.env-stat-number {
+  display: block;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #30d158;
+  margin-bottom: 12px;
+}
+
+.env-stat-label {
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(245, 245, 247, 0.5);
+  line-height: 1.5;
+}
+
+/* ===== Closing Section ===== */
+.env-closing {
+  padding: 120px 24px 160px;
+  background: #000;
+  text-align: center;
+}
+
+.env-closing-content {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.env-closing-text {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #f5f5f7;
+  margin: 0 0 48px;
+}
+
+.env-cta {
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 400;
+  color: #2997ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.env-cta:hover {
+  color: #6cb8ff;
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .env-nav {
+    padding: 16px 20px;
+  }
+
+  .env-hero {
+    padding: 100px 20px 60px;
+    min-height: 80vh;
+  }
+
+  .env-details {
+    padding: 60px 20px 80px;
+  }
+
+  .env-stats {
+    padding: 60px 20px;
+  }
+
+  .env-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .env-stat-card {
+    padding: 32px 20px;
+  }
+
+  .env-closing {
+    padding: 80px 20px 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .env-hero {
+    min-height: 70vh;
+  }
+
+  .env-paragraph {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}

@@ -1,0 +1,43 @@
+# ==================== 认证服务配置 ====================
+# 服务名：mall-auth-service
+# 端口：8080
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: mall-auth-service
+
+  cloud:
+    # ==================== Nacos 服务发现配置 ====================
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848    # Nacos 服务地址（本地运行时）
+        # server-addr: nacos:8848      # Docker 部署时使用（取消注释）
+        namespace: public
+        group: DEFAULT_GROUP
+
+  # ==================== Redis 配置（暂未启用） ====================
+  # 当 Redis 安装完毕后，取消以下注释并配置连接信息：
+  # data:
+  #   redis:
+  #     host: 127.0.0.1         # 本地运行时
+  #     # host: redis            # Docker 部署时使用
+  #     port: 6379
+  #     password:                # Redis 密码（如有）
+  #     database: 0
+  #     timeout: 5000ms
+
+# ==================== 日志配置 ====================
+logging:
+  level:
+    com.smartmall.auth: DEBUG
+    org.springframework.cloud.openfeign: DEBUG
+
+# ==================== Actuator 健康检查 ====================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

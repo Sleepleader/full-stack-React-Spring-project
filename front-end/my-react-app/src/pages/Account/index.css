@@ -1,0 +1,307 @@
+/* ===== Account Bento Grid Page ===== */
+.account-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #f5f5f7;
+}
+
+/* Nav */
+.account-nav {
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: saturate(180%) blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.account-nav-back {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.account-nav-back:hover {
+  color: #fff;
+}
+
+.account-nav-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #f5f5f7;
+}
+
+/* Main Content */
+.account-main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 24px 120px;
+}
+
+.account-heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
+}
+
+.account-subheading {
+  font-size: 17px;
+  color: rgba(245, 245, 247, 0.5);
+  margin: 0 0 48px;
+  font-weight: 400;
+}
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Bento Card */
+.bento-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 28px;
+  position: relative;
+  transition: background 0.3s, border-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  min-height: 160px;
+}
+
+.bento-card:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.bento-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.bento-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bento-card-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.bento-card-icon.username { background: rgba(0, 122, 255, 0.15); color: #007aff; }
+.bento-card-icon.password { background: rgba(255, 69, 58, 0.15); color: #ff453a; }
+.bento-card-icon.email { background: rgba(48, 209, 88, 0.15); color: #30d158; }
+.bento-card-icon.phone { background: rgba(255, 159, 10, 0.15); color: #ff9f0a; }
+
+/* Edit Button */
+.bento-edit-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bento-edit-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.bento-edit-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Card Label */
+.bento-card-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 247, 0.4);
+  margin-bottom: 8px;
+}
+
+/* Card Value */
+.bento-card-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #f5f5f7;
+  word-break: break-all;
+  line-height: 1.3;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bento-card-value.masked {
+  letter-spacing: 4px;
+  font-size: 24px;
+}
+
+/* Edit Mode */
+.bento-edit-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.bento-edit-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 16px;
+  color: #f5f5f7;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.bento-edit-input:focus {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.bento-save-btn,
+.bento-cancel-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.bento-save-btn {
+  background: #007aff;
+  color: #fff;
+}
+
+.bento-save-btn:hover {
+  opacity: 0.85;
+}
+
+.bento-save-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bento-cancel-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bento-cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Logout Button */
+.account-logout-btn {
+  display: block;
+  width: 100%;
+  margin-top: 32px;
+  padding: 16px;
+  border: 1px solid rgba(255, 69, 58, 0.3);
+  border-radius: 16px;
+  background: rgba(255, 69, 58, 0.08);
+  color: #ff453a;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.account-logout-btn:hover {
+  background: rgba(255, 69, 58, 0.15);
+  border-color: rgba(255, 69, 58, 0.5);
+}
+
+/* Loading & Error */
+.account-loading {
+  text-align: center;
+  padding: 120px 24px;
+  font-size: 18px;
+  color: rgba(245, 245, 247, 0.5);
+}
+
+.account-error {
+  text-align: center;
+  padding: 120px 24px;
+  color: #ff453a;
+  font-size: 18px;
+}
+
+/* Toast */
+.account-toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1c1c1e;
+  color: #30d158;
+  padding: 12px 28px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  animation: toast-in 0.3s ease;
+}
+
+.account-toast.error {
+  color: #ff453a;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .account-nav {
+    padding: 16px 20px;
+  }
+
+  .account-main {
+    padding: 40px 16px 100px;
+  }
+
+  .bento-card {
+    padding: 24px;
+    border-radius: 20px;
+    min-height: 140px;
+  }
+}

@@ -1,0 +1,15 @@
+com\smartmall\common\entity\Product.class
+com\smartmall\common\dto\CartRequest.class
+com\smartmall\common\dto\RegisterRequest.class
+com\smartmall\common\entity\OrderItem.class
+com\smartmall\common\entity\CartItem.class
+com\smartmall\common\exception\BusinessException.class
+com\smartmall\common\utils\PasswordUtils.class
+com\smartmall\common\exception\GlobalExceptionHandler.class
+com\smartmall\common\entity\Admin.class
+com\smartmall\common\result\Result.class
+com\smartmall\common\entity\User.class
+com\smartmall\common\dto\LoginRequest.class
+com\smartmall\common\entity\Order.class
+com\smartmall\common\utils\JwtUtils.class
+com\smartmall\common\dto\UserDTO.class

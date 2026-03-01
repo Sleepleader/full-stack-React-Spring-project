@@ -1,0 +1,6 @@
+com\smartmall\auth\controller\AuthController.class
+com\smartmall\auth\service\impl\AuthServiceImpl.class
+com\smartmall\auth\config\TokenCacheConfig.class
+com\smartmall\auth\feign\UserFeignClient.class
+com\smartmall\auth\AuthServiceApplication.class
+com\smartmall\auth\service\AuthService.class

@@ -1,0 +1,274 @@
+/* ===== Product Detail Page ===== */
+.pd-page {
+  min-height: 100vh;
+  background: #eaeded;
+  font-family: 'Amazon Ember', Arial, sans-serif;
+}
+
+/* Nav */
+.pd-nav {
+  background: #131921;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.pd-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pd-brand {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pd-nav-right {
+  display: flex;
+  gap: 12px;
+}
+
+.pd-nav-right button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.pd-nav-right button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Main */
+.pd-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Breadcrumb */
+.pd-breadcrumb {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.pd-breadcrumb a {
+  color: #007185;
+  text-decoration: none;
+}
+
+.pd-breadcrumb a:hover {
+  text-decoration: underline;
+  color: #c7511f;
+}
+
+/* Content Grid */
+.pd-content {
+  display: flex;
+  gap: 40px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Left: Image */
+.pd-image-col {
+  flex: 0 0 400px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.pd-image {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* Right: Info */
+.pd-info-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.pd-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: #0f1111;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.pd-price {
+  font-size: 28px;
+  font-weight: 400;
+  color: #0f1111;
+  margin-bottom: 20px;
+}
+
+.pd-price::before {
+  content: '';
+}
+
+/* Quantity */
+.pd-quantity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.pd-quantity-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f1111;
+}
+
+.pd-quantity-controls {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f0f2f2;
+}
+
+.pd-qty-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  color: #0f1111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.pd-qty-btn:hover:not(:disabled) {
+  background: #e3e6e6;
+}
+
+.pd-qty-btn:disabled {
+  color: #bbb;
+  cursor: not-allowed;
+}
+
+.pd-qty-value {
+  width: 48px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f1111;
+  border-left: 1px solid #d5d9d9;
+  border-right: 1px solid #d5d9d9;
+  line-height: 36px;
+  background: #fff;
+}
+
+/* Add to Cart Button */
+.pd-add-to-cart {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px 20px;
+  background: #ffd814;
+  border: 1px solid #fcd200;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #0f1111;
+  font-weight: 500;
+  transition: background 0.15s;
+  margin-bottom: 28px;
+}
+
+.pd-add-to-cart:hover:not(:disabled) {
+  background: #f7ca00;
+}
+
+.pd-add-to-cart:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Description */
+.pd-description {
+  border-top: 1px solid #e7e7e7;
+  padding-top: 20px;
+}
+
+.pd-description h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f1111;
+  margin: 0 0 10px;
+}
+
+.pd-description p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Loading / Not Found */
+.pd-loading,
+.pd-not-found {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.pd-not-found a {
+  color: #007185;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.pd-not-found a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .pd-content {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .pd-image-col {
+    flex: none;
+    width: 100%;
+  }
+
+  .pd-image {
+    max-height: 300px;
+  }
+
+  .pd-title {
+    font-size: 20px;
+  }
+
+  .pd-price {
+    font-size: 22px;
+  }
+
+  .pd-add-to-cart {
+    max-width: 100%;
+  }
+}
